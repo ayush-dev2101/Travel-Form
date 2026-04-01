@@ -1,0 +1,107 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  color: #ffffff; 
+}
+
+body {
+  background-color: rgb(20, 27, 35);
+}
+
+.container {
+  position: relative;
+  padding: 20px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  overflow: hidden; /* IMPORTANT */
+}
+
+/* Shine line */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* start outside */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+}
+
+/* Hover animation */
+.container:hover::before {
+  animation: shine 1s ease forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+.heading {
+  text-align: center;
+  text-decoration: underline;
+  color: #bec5cc;
+}
+
+.headline {
+  text-align: center;
+  font-size: 20px;
+  color: #bec5cc;
+}
+
+.form form{
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ width: 50%;
+ margin-left: 20%;
+ margin-top: 5%;
+}
+
+.form input,
+.form textarea {
+  overflow: hidden; /*Hide the scroller at textarea */
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid silver;
+  background: transparent;
+  color: white;
+  border-radius: 5px;
+  /* outline: none; */
+}
+
+.btn button {
+  display: inline;
+  background-color: blue;
+  color: white;
+  border: 2px solid rgba(218, 218, 218, 0.773);
+  padding: 10px 16px;
+  margin-right: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.bg {
+  height: 150vh;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  object-fit: cover; /*fixes the image resolution */
+  opacity: 0.7;
+}
+
+.submitMsg {
+  color: green !important;
+  font-size: 40px;
+}
